@@ -20,24 +20,19 @@ void lineSegment(void)
 {    
 	glClear(GL_COLOR_BUFFER_BIT); //clear display window
 	glColor3f(1.0,0.0,0.0); //set line segment color to red
-	glBegin(GL_LINES); 
+	glBegin(GL_LINE_LOOP); 
 	
 	glVertex2i(0,0);   //specify line-segment geometry
-	glVertex2i(100,0);
-	
 	glVertex2i(0,100);
 	glVertex2i(100,100);
+	glVertex2i(100,0);   
 	
-	glVertex2i(0,0);
-	glVertex2i(0,100);
-
-	glVertex2i(100,100);
-	glVertex2i(100,0);
-
+	
 	
 	glEnd();
 	glFlush();   
 }
+
 
 
 int main(int argc, char** argv) 
@@ -49,6 +44,10 @@ int main(int argc, char** argv)
 	glutCreateWindow("A Rectangle"); // Name to Window
 	myInit( );  // Call to myInit()
 	glutDisplayFunc(lineSegment); //send graphics to display window
+	
+	
+	
+	
 	glutMainLoop( ); //Display everything and wait
 
 }

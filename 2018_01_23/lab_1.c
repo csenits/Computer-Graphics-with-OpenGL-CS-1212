@@ -1,5 +1,3 @@
-// 17-1-5-091
-// Khilji Abdullah Faiz Ur Rahman 
 // Lab 1: 23 January 2019
 // Write a OpenGL Program to create a display window and draw a line segment within it.
 

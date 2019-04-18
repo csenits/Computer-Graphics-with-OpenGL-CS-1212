@@ -2,7 +2,7 @@
 CS-1212 Lab Class of CS-1206 Computer Graphics
 
 
-Compile:
+To Compile:
 
 ## For Linux:
 
@@ -11,6 +11,13 @@ Compile:
 gcc -o filename filename.c -lGL -lGLU -lglut
 
 ```
+or simply,
+```
+gcc filename.c -lGL -lGLU -lglut
+
+```
+
+
 
 ## On macOS:
 ### You need to change the header files to:
@@ -27,6 +34,12 @@ and compile using:
 gcc -o filename filename.c -framework Carbon -framework OpenGL -framework GLUT
 
 ```
+or simply, 
+
+```
+gcc filename.c -framework Carbon -framework OpenGL -framework GLUT
+
+```
 
 ## On Windows:
 
@@ -34,6 +47,11 @@ gcc -o filename filename.c -framework Carbon -framework OpenGL -framework GLUT
 
 ```
 gcc -o filename.exe filename.c -lopengl32 -lglut32
+```
+or simply,
+
+```
+gcc filename.c -lopengl32 -lglut32
 ```
 
 

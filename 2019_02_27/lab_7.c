@@ -1,64 +1,78 @@
-#include <GL/glut.h>
-#include <stdio.h>
-#include <math.h>
-#include <stdlib.h>
-int h,k;
-float a,b;
- void display(void)
- {
- double I,J;
- int i,j;
- glClear (GL_COLOR_BUFFER_BIT);
- glColor3f (1.0, 0.0, 0.0);
- glBegin(GL_POINTS);
- glVertex2s(h,k);
- for( i=0 ; i<=a ; i+=1)
- { 
- J=sqrt(1 - (i*i)/(a*a))*b;
- j=(int)(J);
- glVertex2s(h+i,k+j);
- glVertex2s(h-i,k+j);
- glVertex2s(h-i,k-j);
- glVertex2s(h+i,k-j);
- }
- glColor3f (1.0, 1.0, 1.0);
- for(int i=-100 ; i<=100 ; i++)
- {
- glVertex2s(i,0);
- glVertex2s(0,i);
- }
- for(int i=-2; i<=2 ; i++)
- {
- glVertex2s(95+i,4+i);
- glVertex2s(95-i,4+i);
- } 
- for(int i=0; i<=2 ; i++)
- {
- glVertex2s(4+i,95+i);
- glVertex2s(4-i,95+i);
- glVertex2s(4,95-i);
- }
- glEnd();
- glFlush();
- }
-void init(void)
- {
- glClearColor (0.0, 0.0, 0.0, 0.0);
- glOrtho(-100.0, 100.0, -100.0, 100.0, -1.0, 1.0);
- }
-int main(int argc, char** argv)
+#include<openGL/gl.h>
+#include<openGL/glu.h>
+#include<GLUT/glut.h>
+int a=40,b=20,d;
+float x,y,i;
+void ref(int x,int y)
 {
- printf("Enter the center of ellipse:\n");
- scanf("%d %d",&h,&k);
- printf("Enter the parameters a & b:\n");
- scanf("%f %f",&a,&b);
- glutInit(&argc, argv);
- glutInitDisplayMode (GLUT_SINGLE | GLUT_RGB);
- glutInitWindowSize (500, 500);
- glutInitWindowPosition (100, 100);
- glutCreateWindow ("Ellipse : Polynomial Method ");
- init ();
- glutDisplayFunc(display);
- glutMainLoop();
- return 0;
+    glVertex2i(x,y);
+    glVertex2i(x,-y);
+    glVertex2i(-x,y);
+    glVertex2i(-x,-y);
+}
+void display(void)
+{
+    glClear(GL_COLOR_BUFFER_BIT);
+    glBegin(GL_POINTS);
+    d=b*b-b*a*a+0.25*a*a;
+    x=0;
+    y=b;
+    glColor3f(1.0,1.0,0.0);
+    while(x*x<=y*y)
+    {
+        if(d<0)
+        {
+            ref(x,y);
+            x+=1;
+            d=d+2*b*b*x +b*b;
+        }
+        else
+        {
+            ref(x,y);
+            x+=1;
+            y-=1;
+            d=d+2*b*b*x +b*b - 2*a*a*y;
+        }
+    }
+    d=b*b*(x+0.5)*(x+0.5) + a*a*(y-1)*(y-1) -a*a*b*b;
+    while(y>=0)
+    {
+        if(d<0)
+        {
+            ref(x,y);
+            x+=1;
+            y-=1;
+            d=d - 2*a*a*y +a*a;
+        }
+        else
+        {
+            ref(x,y);
+            y-=1;
+            d=d+2*b*b*x +a*a - 2*a*a*y;
+        }
+    }
+    glColor3f(1.0,0.0,1.0);
+    for(i=-100;i<=100;++i)
+    {
+        glVertex2i(i,0);
+        glVertex2i(0,i);
+    }
+    glEnd();
+    glFlush();
+}
+void init(void)
+{
+    glClearColor(0,0,0,0);
+    glOrtho(-100,100,-100,100,-1,1);
+}
+int main(int argc,char **argv)
+{
+    glutInit(&argc,argv);
+    glutInitDisplayMode(GLUT_SINGLE|GLUT_RGB);
+    glutInitWindowSize(500,500);
+    glutInitWindowPosition(100,100);
+    glutCreateWindow("midpoint ellipse");
+    init();
+    glutDisplayFunc(display);
+    glutMainLoop();
 }

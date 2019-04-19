@@ -2,6 +2,7 @@
 #include <OpenGL/glu.h>
 #include <GLUT/glut.h>
 #include<stdio.h>
+
 int a=0,b=0,c=210,d=100,e=310,f=200,g=400,h=1;
 void myinit()
 {

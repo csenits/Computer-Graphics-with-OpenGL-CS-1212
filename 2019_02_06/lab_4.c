@@ -4,6 +4,7 @@
 // and verify whether the drawn line is smooth or not  
 // The diagram should be generic so that it works for interger values check fior the slope of the line.
 
+
 #include<GL/glut.h>
 #include <GL/gl.h>
 #include<stdlib.h>

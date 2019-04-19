@@ -4,6 +4,7 @@
 #include<stdlib.h>
 #include<math.h>
 #define ROUND(x) ((int)(x+0.5))
+
 int a,b;
 int tx,ty;
 float x;

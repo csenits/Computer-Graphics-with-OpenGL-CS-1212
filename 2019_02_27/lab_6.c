@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <math.h>
 
+
 void init(void)
 {
   glClearColor(1.0,1.0,1.0,0.0);

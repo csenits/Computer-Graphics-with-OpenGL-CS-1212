@@ -2,6 +2,7 @@
 // Write a OpenGL Program to create a display window and draw a line segment within it.
 
 
+
 // Initialization Function
 #include<GL/glut.h>
 void myInit ()

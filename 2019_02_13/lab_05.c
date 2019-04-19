@@ -3,6 +3,7 @@
 #include <GL/gl.h>
 #include<stdlib.h>
 #define ROUND(x) ((int)(x+0.5))
+
 int r;
 	
 void display (void)

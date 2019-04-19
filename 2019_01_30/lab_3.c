@@ -2,6 +2,7 @@
 // Implementation of DDA Line Drawing Algorithm.
 // Divide the coordinate axis into four quadrants.
 // draw the line to show that the algorithm works for m > 0, m < 0 and m = 0
+
 #include<GL/glut.h>
 #include <GL/gl.h>
 #include<stdlib.h>

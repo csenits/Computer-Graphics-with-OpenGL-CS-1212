@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<GL/glut.h>
 
+
 double xmin=50, ymin=50, xmax=100,ymax=100; //window boundaries
 double xvmin=200,yvmin=200,xvmax=300, yvmax=300; //viewport boundaries
 int x1,y1,x2,y2;
